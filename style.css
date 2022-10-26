@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css?family=Kumbh Sans');
+
+*{
+    font-family: 'Kumbh Sans';
+}
+
+body{
+    margin: 0 auto;
+}
+
+.container-fluid{
+    width: 1440px;
+    height: 1620px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #F4F6F8;
+}
+.header-bg{
+    background-image: url(./assets/desktop/bg-pattern-header.svg);
+    height: 160px;
+    margin: 0 auto;  
+}
+
+.header{
+    width: 1110px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.title h1{
+    color: #ffffff;
+}
+
+.theme-switch{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.theme-switch .toggle{
+    width: 40px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.container{
+    width: 1110px;
+    margin: 0 auto;
+}
+
+.search-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    height: 80px;
+    width: 1110px;
+    border-radius: 5px;
+    margin-top: -35px;
+}
+
+.filter-title{
+    display: flex;
+    align-items: center;
+    margin-left: 35px;
+    width: 312px;
+}
+
+.filter-title input{
+    width: 271px;
+    height: 16px;
+    border: none;
+    font-size: 16px;
+    margin-left: 15px;
+}
+
+.filter-title img{
+    width: 24px;
+    height: 24px;
+}
+
+.filter-location{
+    display: flex;
+    align-items: center;
+    width: 169px;
+}
+
+.filter-location input{
+    width: 135px;
+    height: 16px;
+    border: none;
+    font-size: 16px;
+    margin-left: 15px;
+}
+
+.filter-location img{
+    width: 24px;
+    height: 24px;
+}
+
+.filter-period{
+    display: flex;
+    /* align-items: center; */
+    margin-right: 10px;
+    /* width: 148px; */
+}
+
+.filter-period input[type=checkbox]{
+    width: 24px;
+    height: 24px;
+    background-color: #979797;
+}
+
+.filter-period span{
+    width: 108px;
+    height: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #19292D;
+    margin-left: 15px;
+    margin-top: -10px;
+}
+
+.filter-period button{
+    width: 123px;
+    height: 48px;
+    color: #fff;
+    background-color: #5964E0;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+
+.items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
