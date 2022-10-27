@@ -59,6 +59,7 @@ body{
     width: 1110px;
     border-radius: 5px;
     margin-top: -35px;
+    margin-bottom: 4%;
 }
 
 .filter-title{
@@ -140,4 +141,99 @@ body{
     align-items: center;
 }
 
+.jobs{
+    margin-top: 15%;
+}
+.card{
+    width: 350px;
+    height: 228px;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.card-body{
+    padding: 20px;
+}
+
+.company-logo{
+    margin-top: -45px;
+    width: 50px;
+    height: 50px;
+    border-radius: 30%;
+    position: relative;
+}
+
+.company-logo img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.company-period p{
+    font-size: 16px;
+    color: #6E8098;
+    font-family: "Kumbh Sans";
+    margin-top: -10px;
+}
+
+.company-role{
+    margin-top: -10px;
+}
+
+.company-role a{
+    font-size: 20px;
+    color: #19292D;
+    font-family: "Kumbh Sans";
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.company-role a:hover{
+    color: #6E8098;
+}
+
+.company-name p{
+    font-size: 16px;
+    color: #6E8098;
+    font-family: "Kumbh Sans";
+}
+
+.card-footer{
+    margin-top: 40px;
+}
+
+.company-location p{
+    font-size: 14px;
+    color: #5964E0;
+    font-family: "Kumbh Sans";
+    font-weight: bold;
+}
+
+.myData{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    column-gap: 27px;
+}
+
+.morebtn{
+    text-align: center;
+}
+
+.btnLoadMore{
+    width: 141px;
+    height: 48px;
+    color: #fff;
+    background-color: #5964E0;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 6%;
+}
+
+.btnLoadMore:hover{
+    background-color: #939BF4;
+    cursor: pointer;
+}
 
