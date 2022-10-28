@@ -10,7 +10,7 @@ body{
 
 .container-fluid{
     width: 1440px;
-    height: 1620px;
+    height: 1665px;
     margin-left: auto;
     margin-right: auto;
     background-color: #F4F6F8;
@@ -67,6 +67,11 @@ body{
     align-items: center;
     margin-left: 35px;
     width: 312px;
+    height: 100%;
+}
+
+.filter-title :focus{
+    outline: none;
 }
 
 .filter-title input{
@@ -75,6 +80,8 @@ body{
     border: none;
     font-size: 16px;
     margin-left: 15px;
+    color: #19292D;
+    font-family: "Kumbh Sans";
 }
 
 .filter-title img{
@@ -86,6 +93,14 @@ body{
     display: flex;
     align-items: center;
     width: 169px;
+    height: 100%;
+    border-left: 1px solid #979797;
+    border-right: 1px solid #979797;
+    padding: 0 120px 0 20px;
+}
+
+.filter-location :focus{
+    outline: none;
 }
 
 .filter-location input{
@@ -94,6 +109,8 @@ body{
     border: none;
     font-size: 16px;
     margin-left: 15px;
+    color: #19292D;
+    font-family: "Kumbh Sans";
 }
 
 .filter-location img{
@@ -103,9 +120,8 @@ body{
 
 .filter-period{
     display: flex;
-    /* align-items: center; */
+    height: 100%;
     margin-right: 10px;
-    /* width: 148px; */
 }
 
 .filter-period input[type=checkbox]{
@@ -133,6 +149,11 @@ body{
     border: none;
     border-radius: 5px;
     margin-left: 20px;
+}
+
+.filter-period button:hover{
+    background-color: #939BF4;
+    cursor: pointer;
 }
 
 .items{
