@@ -4,7 +4,7 @@ fetch('data.json')
     return response.json();
   })
   .then(function (data) {
-    allData.push(data);
+    allData.push(...data);
     appendData(data);
   })
   .catch(function (err) {
@@ -22,12 +22,10 @@ function titleCase(str) {
 let filteredItems = [];
 
 function getItemById(id){
-  let item = allData[0].find(item => item.id === id);
-  filteredItems.push(item);
-
-  console.log(" Item:" + item);
-  console.log(id);
-  console.log(allData);
+  let item = allData.filter(item => item.id === id);
+//   console.log(item)
+//   appendDatA(item)
+  localStorage.setItem('item',JSON.stringify(item))
 }
 console.log(filteredItems);
 
@@ -47,7 +45,7 @@ console.log(filteredItems);
                                 <p><span class="post-time">${data[i].postedAt}</span> <span style="font-size: 40px">.</span> <span class="contract">${data[i].contract}</span></p>
                             </div>
                             <div class="company-role">
-                                <a id="roleName"  onclick="getItemById(${data[i].id})">${data[i].position}</a>
+                                <a id="roleName" href="./details.html"  onclick="getItemById(${data[i].id})">${data[i].position}</a>
                             </div>
                             <div class="company-name">
                                 <p>${data[i].company}</p>
@@ -122,23 +120,25 @@ document.getElementById("searchFilter").addEventListener("click", function(){
 }
 
 // details page 
-function appendDatA(filteredItems){
+function appendDatA(){
   var detailsContainer = document.getElementById("myDetails");
-  for (var i = 0; i < filteredItems.length; i++) {
+    let item = JSON.parse(localStorage.getItem('item'))
+    console.log(item)
+    // console.log(item)
     var div = document.createElement("div");
     div.innerHTML = `<div class="details-body">
                 <div class="content">
                     <div class="content-head">
                         <p><span class="post-time">1w ago</span> <span style="font-size: 40px">.</span> <span class="contract">Part Time</span></p>
                         <div class="position-apply">
-                            <p>Senior Software Engineer</p>
+                            <p>${item[0].position}</p>
                             <button>Apply Now</button>
                         </div>
-                        <p class="country">United Kingdom</p>
+                        <p class="country">${item[0].location}</p>
                     </div>
                     <div class="description">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
+                            ${item[0].description}
                         </p>
                     </div>
                     <div class="requirement">
@@ -147,13 +147,13 @@ function appendDatA(filteredItems){
                         </div>
                         <div class="requirement-body">
                             <p>
-                                Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.
+                            ${item[0].requirements.content}
                             </p>
                             <ul>
-                                <li>Morbi interdum mollis sapien. Sed</li>
-                                <li>Phasellus lacinia magna a ullamcorper laoreet, lectus arcu pulvinar risus</li>
-                                <li>Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus.</li>
-                                <li>Morbi interdum mollis sapien. Sed</li>
+                                <li>${item[0].requirements.items[0]}</li>
+                                <li>${item[0].requirements.items[1]}</li>
+                                <li>${item[0].requirements.items[2]}</li>
+                                <li>${item[0].requirements.items[3]}</li>
                             </ul>
                         </div>
                     </div>
@@ -163,21 +163,23 @@ function appendDatA(filteredItems){
                         </div>
                         <div class="responsibility-body">
                             <p>
-                                Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
+                            ${item[0].role.content}
                             </p>
                             <ol>
-                                <li>Morbi interdum mollis sapien. Sed</li>
-                                <li>Phasellus lacinia magna a ullamcorper laoreet, lectus arcu pulvinar risus</li>
-                                <li>Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus.</li>
-                                <li>Morbi interdum mollis sapien. Sed</li>
+                            <li> ${item[0].role.items[0]}</li>
+                            <li>${item[0].role.items[1]}</li>
+                            <li>${item[0].role.items[2]}</li>
+                            <li>${item[0].role.items[3]}</li>
                             </ol>
                         </div>
                     </div>
                 </div>
             </div>`
     detailsContainer.appendChild(div);
-  }
+  
 }
+
+appendDatA()
 
 
 
