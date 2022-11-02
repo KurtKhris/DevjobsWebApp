@@ -1,8 +1,10 @@
+let allData = [];
 fetch('data.json')
   .then(function (response) {
     return response.json();
   })
   .then(function (data) {
+    allData.push(data);
     appendData(data);
   })
   .catch(function (err) {
@@ -16,6 +18,19 @@ function titleCase(str) {
   }
   return str.join(' ');
 }
+
+let filteredItems = [];
+
+function getItemById(id){
+  let item = allData[0].find(item => item.id === id);
+  filteredItems.push(item);
+
+  console.log(" Item:" + item);
+  console.log(id);
+  console.log(allData);
+}
+console.log(filteredItems);
+
 
   function appendData(data) {
   var mainContainer = document.getElementById("myData");
@@ -32,7 +47,7 @@ function titleCase(str) {
                                 <p><span class="post-time">${data[i].postedAt}</span> <span style="font-size: 40px">.</span> <span class="contract">${data[i].contract}</span></p>
                             </div>
                             <div class="company-role">
-                                <a id="roleName" href="./details.html/${data[i].company}" >${data[i].position}</a>
+                                <a id="roleName"  onclick="getItemById(${data[i].id})">${data[i].position}</a>
                             </div>
                             <div class="company-name">
                                 <p>${data[i].company}</p>
@@ -60,13 +75,12 @@ function titleCase(str) {
     document.getElementById("loadMore").style.display = "none";
   });
 
-    // let link = document.getElementById("roleName").href;
-    // url = String(link);
-    // console.log(url);
-
-    // const array = url.split('/');
-    // const urlx = array[4];
-    // console.log(urlx);
+//  function getData(data){
+//   for (var i = 0; i < data.length; i++){
+//     console.log(data[i].id);
+//   }
+//  }
+//  getData(data);
 
   //filter
     const jobs = document.querySelectorAll('.jobs');
@@ -97,11 +111,8 @@ document.getElementById("searchFilter").addEventListener("click", function(){
 });
 
 // document.getElementById("roleName").addEventListener("click", function(){
-//   if (urlx === data[i].company) {
-//     console.log("Yes");
-//   }else{
-//     console.log("No");
-//   }
+//     localStorage.setItem("roleName", "hello");
+  
     
 
 // });
@@ -111,62 +122,62 @@ document.getElementById("searchFilter").addEventListener("click", function(){
 }
 
 // details page 
-// function appendDatA(data){
-//   var detailsContainer = document.getElementById("myDetails");
-//   for (var i = 0; i < data.length; i++) {
-//     var div = document.createElement("div");
-//     div.innerHTML = `<div class="details-body">
-//                 <div class="content">
-//                     <div class="content-head">
-//                         <p><span class="post-time">1w ago</span> <span style="font-size: 40px">.</span> <span class="contract">Part Time</span></p>
-//                         <div class="position-apply">
-//                             <p>Senior Software Engineer</p>
-//                             <button>Apply Now</button>
-//                         </div>
-//                         <p class="country">United Kingdom</p>
-//                     </div>
-//                     <div class="description">
-//                         <p>
-//                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
-//                         </p>
-//                     </div>
-//                     <div class="requirement">
-//                         <div class="requirement-head">
-//                             <p>Requirements</p>
-//                         </div>
-//                         <div class="requirement-body">
-//                             <p>
-//                                 Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.
-//                             </p>
-//                             <ul>
-//                                 <li>Morbi interdum mollis sapien. Sed</li>
-//                                 <li>Phasellus lacinia magna a ullamcorper laoreet, lectus arcu pulvinar risus</li>
-//                                 <li>Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus.</li>
-//                                 <li>Morbi interdum mollis sapien. Sed</li>
-//                             </ul>
-//                         </div>
-//                     </div>
-//                     <div class="responsibility">
-//                         <div class="responsibility-head">
-//                             <p>What You Will Do</p>
-//                         </div>
-//                         <div class="responsibility-body">
-//                             <p>
-//                                 Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
-//                             </p>
-//                             <ol>
-//                                 <li>Morbi interdum mollis sapien. Sed</li>
-//                                 <li>Phasellus lacinia magna a ullamcorper laoreet, lectus arcu pulvinar risus</li>
-//                                 <li>Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus.</li>
-//                                 <li>Morbi interdum mollis sapien. Sed</li>
-//                             </ol>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>`
-//     detailsContainer.appendChild(div);
-//   }
-// }
+function appendDatA(filteredItems){
+  var detailsContainer = document.getElementById("myDetails");
+  for (var i = 0; i < filteredItems.length; i++) {
+    var div = document.createElement("div");
+    div.innerHTML = `<div class="details-body">
+                <div class="content">
+                    <div class="content-head">
+                        <p><span class="post-time">1w ago</span> <span style="font-size: 40px">.</span> <span class="contract">Part Time</span></p>
+                        <div class="position-apply">
+                            <p>Senior Software Engineer</p>
+                            <button>Apply Now</button>
+                        </div>
+                        <p class="country">United Kingdom</p>
+                    </div>
+                    <div class="description">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
+                        </p>
+                    </div>
+                    <div class="requirement">
+                        <div class="requirement-head">
+                            <p>Requirements</p>
+                        </div>
+                        <div class="requirement-body">
+                            <p>
+                                Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.
+                            </p>
+                            <ul>
+                                <li>Morbi interdum mollis sapien. Sed</li>
+                                <li>Phasellus lacinia magna a ullamcorper laoreet, lectus arcu pulvinar risus</li>
+                                <li>Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus.</li>
+                                <li>Morbi interdum mollis sapien. Sed</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="responsibility">
+                        <div class="responsibility-head">
+                            <p>What You Will Do</p>
+                        </div>
+                        <div class="responsibility-body">
+                            <p>
+                                Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.
+                            </p>
+                            <ol>
+                                <li>Morbi interdum mollis sapien. Sed</li>
+                                <li>Phasellus lacinia magna a ullamcorper laoreet, lectus arcu pulvinar risus</li>
+                                <li>Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus.</li>
+                                <li>Morbi interdum mollis sapien. Sed</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>`
+    detailsContainer.appendChild(div);
+  }
+}
 
 
 
