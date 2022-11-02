@@ -35,8 +35,8 @@ console.log(filteredItems);
   for (var i = 0; i < data.length; i++) {
     var div = document.createElement("div");
     div.innerHTML = `<div id="ID${data[i].id}" class="jobs">
-                <div class="card">
-                    <div class="card-body">
+                <div class="card" >
+                    <div class="card-body" id="card-id">
                         <div class="card-header">
                             <div class="company-logo" style="background-color: ${data[i].logoBackground}">
                                 <img src="${data[i].logo}" alt="company logo">
@@ -180,6 +180,19 @@ function appendDatA(){
 }
 
 appendDatA()
+
+
+ function mode(){
+    var element = document.getElementById('fluid');
+    var cards = document.querySelector('.jobs');
+    element.classList.toggle('dark-mode');
+    cards.classList.toggle('dark-mode2');
+}
+
+
+
+
+
 
 
 
