@@ -184,9 +184,21 @@ appendDatA()
 
  function mode(){
     var element = document.getElementById('fluid');
-    var cards = document.querySelector('.jobs');
+    var cards = document.querySelectorAll('.card');
+    
     element.classList.toggle('dark-mode');
-    cards.classList.toggle('dark-mode2');
+    cards.forEach(box => {
+        box.classList.toggle('dark-mode2');
+    })
+}
+
+function mode2(){
+    var element = document.getElementById('fluid');
+    element.classList.toggle('dark-mode');
+    var details = document.querySelector('.details-body');
+    var detailsContainer = document.querySelector('.details-header');
+    detailsContainer.classList.toggle('dark-mode2');
+    details.classList.toggle('dark-mode2');
 }
 
 
