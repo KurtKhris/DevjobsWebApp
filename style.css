@@ -1081,11 +1081,15 @@ body{
 
 .dark-mode {
     background-color: black;
-    color: white;
+    color: white !important;
 }
 
 .dark-mode2 {
     background: #19202D;
+    color: white !important;
+
+}
+.dark-mode2  a{
     color: white;
 }
 
