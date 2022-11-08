@@ -23,8 +23,6 @@ let filteredItems = [];
 
 function getItemById(id){
   let item = allData.filter(item => item.id === id);
-//   console.log(item)
-//   appendDatA(item)
   localStorage.setItem('item',JSON.stringify(item))
 }
 console.log(filteredItems);
@@ -71,19 +69,11 @@ console.log(filteredItems);
     document.getElementById("ID14").style.display = "block";
     document.getElementById("ID15").style.display = "block";
     document.getElementById("loadMore").style.display = "none";
-  });
-
-//  function getData(data){
-//   for (var i = 0; i < data.length; i++){
-//     console.log(data[i].id);
-//   }
-//  }
-//  getData(data);
+  })
 
   //filter
     const jobs = document.querySelectorAll('.jobs');
     
-
     function filter(){
     //Get Values
     const inputTitle = titleCase(document.getElementById("title").value);
@@ -107,15 +97,6 @@ console.log(filteredItems);
 document.getElementById("searchFilter").addEventListener("click", function(){
     filter();
 });
-
-// document.getElementById("roleName").addEventListener("click", function(){
-//     localStorage.setItem("roleName", "hello");
-  
-    
-
-// });
-
-
 
 }
 
@@ -185,11 +166,13 @@ appendDatA()
  function mode(){
     var element = document.getElementById('fluid');
     var cards = document.querySelectorAll('.card');
+    var search = document.querySelector('.search-bar');
     
     element.classList.toggle('dark-mode');
     cards.forEach(box => {
         box.classList.toggle('dark-mode2');
-    })
+    });
+    search.classList.toggle('dark-mode3');
 }
 
 function mode2(){
@@ -197,8 +180,10 @@ function mode2(){
     element.classList.toggle('dark-mode');
     var details = document.querySelector('.details-body');
     var detailsContainer = document.querySelector('.details-header');
+    var footer = document.querySelector('.details-footer');
     detailsContainer.classList.toggle('dark-mode2');
     details.classList.toggle('dark-mode2');
+    footer.classList.toggle('dark-mode2');
 }
 
 

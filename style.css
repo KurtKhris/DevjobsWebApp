@@ -1080,16 +1080,33 @@ body{
   }
 
 .dark-mode {
-    background-color: black;
+    background-color: #121721;
     color: white !important;
 }
 
 .dark-mode2 {
     background: #19202D;
     color: white !important;
-
 }
 .dark-mode2  a{
     color: white;
+}
+
+/* .dark-mode2  p{
+    color: white;
+} */
+
+.dark-mode3 {
+    background: #19202D;
+    color: white !important;
+}
+
+.dark-mode3 input{
+    background: #19202D;
+    color: white !important;
+}
+
+.dark-mode3 span{
+    color: white !important;
 }
 
