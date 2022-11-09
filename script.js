@@ -112,10 +112,12 @@ function appendDatA(){
                     <div class="content-head">
                         <p><span class="post-time">1w ago</span> <span style="font-size: 40px">.</span> <span class="contract">Part Time</span></p>
                         <div class="position-apply">
-                            <p>${item[0].position}</p>
+                            <p class="pos">${item[0].position}</p>
+                            <p class="country mobile">${item[0].location}</p>
                             <button>Apply Now</button>
                         </div>
-                        <p class="country">${item[0].location}</p>
+                        <p class="country desktop">${item[0].location}</p>
+                        
                     </div>
                     <div class="description">
                         <p>

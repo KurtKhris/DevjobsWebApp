@@ -322,6 +322,7 @@ body{
     color: #6E8098;
 }
 
+
 .details-site button{
     width: 147px;
     height: 48px;
@@ -392,6 +393,10 @@ body{
     font-family: "Kumbh Sans";
     border: none;
     border-radius: 5px;
+}
+
+.mobile{
+    display: none;
 }
 
 .position-apply button:hover{
@@ -736,6 +741,10 @@ body{
     display: none;
 }
 
+.mobile{
+    display: none;
+}
+
 }
 
 
@@ -988,6 +997,40 @@ body{
     cursor: pointer;
 }
 
+.position-apply {
+    display: grid;
+    align-items: center;
+    margin-top: -40px;
+}
+
+.position-apply p {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "Kumbh Sans";
+    color: #19202D;
+    line-height: auto;
+}
+
+.position-apply button {
+    width: 240px;
+    height: 48px;
+    color: #fff;
+    background-color: #5964E0;
+    font-size: 16px;
+    font-family: "Kumbh Sans";
+    border: none;
+    border-radius: 5px;
+    margin-top: 40px;
+}
+
+.desktop{
+    display: none;
+}
+
+.mobile{
+    display: block;
+}
+
 .details-body{
     background-color: #fff;
     border-radius: 5px;
@@ -1005,13 +1048,31 @@ body{
 }
 
 .position-application {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: -40px;
+    margin-top: 50px;
     width: 327px;
     margin-left: 5%;
 }
+
+.position-application button {
+    width: 375px;
+    height: 48px;
+    color: #fff;
+    background-color: #5964E0;
+    font-size: 16px;
+    font-family: "Kumbh Sans";
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.position-application .main-role {
+    display: none;
+}
+
+.position-application .so-digital {
+    display: none;
+}
+
 }
 
 
@@ -1092,9 +1153,25 @@ body{
     color: white;
 }
 
-/* .dark-mode2  p{
+.dark-mode2  .details-name .name{
     color: white;
-} */
+}
+
+.dark-mode2  .position-apply .pos{
+    color: white;
+}
+
+.dark-mode2  .requirement-head p{
+    color: white;
+}
+
+.dark-mode2  .responsibility-head p{
+    color: white;
+}
+
+.dark-mode2  .main-role{
+    color: white;
+}
 
 .dark-mode3 {
     background: #19202D;
