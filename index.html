@@ -46,13 +46,32 @@
                 </div>
                 <div class="mobile-filter">
                     <div class="filter-icon">
-                        <img src="./assets/mobile/icon-filter.svg" alt="">
+                        <img src="./assets/mobile/icon-filter.svg" id="modalBtn" alt="">
                     </div>
                     <div class="search-icon">
                         <img src="./assets/desktop/icon-search.svg" alt="">
                     </div>
                 </div>
+                
             </div>
+
+            <!-- Modal  -->
+            <div id="myModal" class="modal">
+                <div class="modal-filter mobile">
+                    <div class="modal-filter-location">
+                        <img src="./assets/desktop/icon-location.svg" alt="location">
+                        <input type="text" name="location" id="location" placeholder="Filter by location">
+                    </div>
+                    <div class="modal-filter-period">
+                        <div class="modal-items">
+                        <input type="checkbox" name="period" id="period"><span>Full Time Only</span> 
+                            
+                        </div>
+                        <button class="btn" name="search" id="searchFilter">Search</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal  -->
 
            
             <div class="myData" id="myData"></div>

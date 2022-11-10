@@ -78,7 +78,7 @@ console.log(filteredItems);
     //Get Values
     const inputTitle = titleCase(document.getElementById("title").value);
     const inputLocation = titleCase(document.getElementById('location').value);
-    const inputPeriod = titleCase(document.getElementById('period').value);
+    const inputPeriod = titleCase(document.getElementById('period').value = "Full Time");
 
 
     console.log(inputPeriod);
@@ -180,12 +180,28 @@ appendDatA()
 function mode2(){
     var element = document.getElementById('fluid');
     element.classList.toggle('dark-mode');
+    var modal = document.querySelector('.modal-filter');
     var details = document.querySelector('.details-body');
     var detailsContainer = document.querySelector('.details-header');
     var footer = document.querySelector('.details-footer');
     detailsContainer.classList.toggle('dark-mode2');
     details.classList.toggle('dark-mode2');
     footer.classList.toggle('dark-mode2');
+    modal.classList.toggle('dark-mode3');
+}
+
+// modal 
+var modal = document.getElementById("myModal");
+
+document.getElementById("modalBtn").addEventListener("click", function(){
+    modal.style.display = "block";
+});
+
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }
 
 
