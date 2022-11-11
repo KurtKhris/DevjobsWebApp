@@ -98,6 +98,21 @@ document.getElementById("searchFilter").addEventListener("click", function(){
     filter();
 });
 
+// modal 
+var modal = document.getElementById("myModal");
+
+document.getElementById("modalBtn").addEventListener("click", function(){
+    modal.style.display = "block";
+});
+
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
 }
 
 // details page 
@@ -190,19 +205,6 @@ function mode2(){
     modal.classList.toggle('dark-mode3');
 }
 
-// modal 
-var modal = document.getElementById("myModal");
-
-document.getElementById("modalBtn").addEventListener("click", function(){
-    modal.style.display = "block";
-});
-
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
 
 
 
