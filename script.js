@@ -113,6 +113,15 @@ window.onclick = function(event) {
 }
 
 // dark mode 
+function toggles(){
+  var switchToggle = document.getElementById("togg");
+  var label = document.createElement("label");
+  label.innerHTML = `<input type="checkbox">
+                    <span class="slider round" id="switchHandle"></span>`;
+  switchToggle.appendChild(label);
+}
+toggles();
+
 
 let theme_toggler = document.querySelector('.round');
 
@@ -202,36 +211,47 @@ function appendDatA(){
                 </div>
             </div>`
     detailsContainer.appendChild(div);
+
+    function toggles(){
+  var switchToggle = document.getElementById("togg");
+  var label = document.createElement("label");
+  label.innerHTML = `<input id="switchHandle" type="checkbox">
+                    <span class="slider round"></span>`;
+  switchToggle.appendChild(label);
+}
+toggles();
+
+
+
+let theme_toggler = document.querySelector('.round');
+
+theme_toggler.addEventListener('click', function(){ 
+    document.body.classList.toggle('dark_mode');
+    if(document.body.classList.contains('dark_mode')){
+      localStorage.setItem('website_theme','dark_mode');
+      theme_toggler.setAttribute('checked', true);
+    }else{
+      localStorage.setItem('website_theme','default');
+    }
+});
+
+function retrieve_theme(){
+  var theme = localStorage.getItem('website_theme');
+  if(theme != null){
+ document.body.classList.remove('default', 'dark_mode'); document.body.classList.add(theme);
+  }
+}
+
+retrieve_theme();
+
+window.addEventListener("storage",function(){
+retrieve_theme();
+},false);
   
 }
 
 appendDatA()
 
-
-//  function mode(){
-//     var element = document.getElementById('fluid');
-//     var cards = document.querySelectorAll('.card');
-//     var search = document.querySelector('.search-bar');
-    
-//     element.classList.toggle('dark-mode');
-//     cards.forEach(box => {
-//         box.classList.toggle('dark-mode2');
-//     });
-//     search.classList.toggle('dark-mode3');
-// }
-
-// function mode2(){
-//     var element = document.getElementById('fluid');
-//     element.classList.toggle('dark-mode');
-//     var modal = document.querySelector('.modal-filter');
-//     var details = document.querySelector('.details-body');
-//     var detailsContainer = document.querySelector('.details-header');
-//     var footer = document.querySelector('.details-footer');
-//     detailsContainer.classList.toggle('dark-mode2');
-//     details.classList.toggle('dark-mode2');
-//     footer.classList.toggle('dark-mode2');
-//     modal.classList.toggle('dark-mode3');
-// }
 
 
 
